@@ -2,9 +2,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY);
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
@@ -18,4 +18,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
