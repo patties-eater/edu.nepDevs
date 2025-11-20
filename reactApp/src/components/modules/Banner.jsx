@@ -1,22 +1,6 @@
 import banner from "../../assets/profile-pic.png";
-
-// function Banner() {
-//   return (
-//     <div className="w-full flex justify-center mt-4">
-//       <img
-//         src={banner}
-//         alt="banner"
-//         className="w-[85%] rounded-md shadow-md"
-//       />
-//     </div>
-//   );
-// }
-
-// export default Banner;
-
-
-
-
+import prajwalAi from "../../assets/prajwalAi.png";
+import world from "../../assets/world.png";
 
 
 
@@ -34,11 +18,11 @@ const Banner = () => {
       {/* Background Elements */}
       <div className="absolute top-10 left-10 w-4 h-4 rounded-full bg-blue-400 animate-pulse"></div>
       <div className="absolute top-20 left-20">
-        <img src="https://assets.website-files.com/60ee693b4823101d293f0b6e/60ef2f2f98642a42012d9c4f_globe-icon.svg" alt="Globe" className="w-16 h-16 opacity-30 animate-float" />
+        <img src={world} alt="Globe" className="w-16 h-16 opacity-30 animate-float" />
       </div>
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
       <div className="absolute top-1/4 right-1/4 transform rotate-12">
-        <img src="https://assets.website-files.com/60ee693b4823101d293f0b6e/60ef2f2f98642a42012d9c4f_triangle-icon.svg" alt="Triangle" className="w-20 h-20 opacity-30 animate-pulse" />
+        <img src={world} alt="Triangle" className="w-20 h-20 opacity-30 animate-pulse" />
       </div>
       <div className="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2">
         <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-20 animate-spin-slow">
@@ -56,7 +40,7 @@ const Banner = () => {
               Platform
               <span className="absolute left-0 bottom-0 w-full h-2 bg-blue-400 opacity-50 z-0"></span>
             </span>{' '}
-            For Entrance <br />
+            For Exam <br />
             Preparation
           </h1>
           <p className="text-lg text-gray-700 mb-8 max-w-md">
@@ -82,7 +66,7 @@ const Banner = () => {
             {/* Main Image - Now using the new boy image */}
             <div className="rounded-xl overflow-hidden shadow-2xl">
               <img 
-                src={banner} 
+                src={prajwalAi} 
                 alt="Male student ready for entrance preparation" 
                 className="w-full h-auto object-cover transform scale-105" 
               />

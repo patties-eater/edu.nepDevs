@@ -132,7 +132,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
           
           <p className="order-2 md:order-1 text-center md:text-left mb-2 md:mb-0">
-            Copyright &copy; {new Date().getFullYear()} GuptaTutorial All Rights Reserved.
+            Copyright &copy; {new Date().getFullYear()} CodeWithPrajjwal All Rights Reserved.
             <span className="block mt-1 md:inline md:ml-4">
                Developed By <a href="#" className="text-blue-400 hover:text-blue-300 transition duration-200 font-medium">Founder and CEO Of NepDevs Prajjwal Gautam </a>
             </span>
