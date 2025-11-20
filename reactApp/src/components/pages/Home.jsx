@@ -95,7 +95,7 @@ import Banner from "../modules/Banner";
 import Hero from "../modules/Hero";
 import Categories from "../modules/Categories";
 import Footer from "../modules/Footer";
-import YouTubeCard from "../modules/YouTubeCard";
+import YouTubeCard from "../modules/YoutubeCard";
 import React, { useState } from "react";
 
 function Home() {
