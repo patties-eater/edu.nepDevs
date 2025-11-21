@@ -96,7 +96,12 @@ import Hero from "../modules/Hero";
 import Categories from "../modules/Categories";
 import Footer from "../modules/Footer";
 import YouTubeCard from "../modules/YoutubeCard";
+
 import React, { useState } from "react";
+
+// page( but home page is the suprimpages which will take both page annd pages modules) component other than pages modules will be here imported
+
+import ContactUs from "./ContactUs";
 
 function Home() {
   const allVideos = [
@@ -152,6 +157,8 @@ function Home() {
           )}
         </div>
       </section>
+
+      <ContactUs />
 
       <Footer />
     </>

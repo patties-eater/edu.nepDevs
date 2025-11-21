@@ -1,7 +1,7 @@
 import banner from "../../assets/profile-pic.png";
 import prajwalAi from "../../assets/prajwalAi.png";
 import world from "../../assets/world.png";
-
+import BannerTop from "./BannnerTop";
 
 
 
@@ -14,8 +14,11 @@ const Banner = () => {
   const heroImageUrl = "https://example.com/path-to-your-new-boy-image.jpg"; // Placeholder, replace with actual URL
 
   return (
+    <>
+    <BannerTop />
     <div className="relative bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Elements */}
+       
+         {/* Background Elements */}
       <div className="absolute top-10 left-10 w-4 h-4 rounded-full bg-blue-400 animate-pulse"></div>
       <div className="absolute top-20 left-20">
         <img src={world} alt="Globe" className="w-16 h-16 opacity-30 animate-float" />
@@ -113,6 +116,7 @@ const Banner = () => {
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
       `}</style>
     </div>
+    </>
   );
 };
 
