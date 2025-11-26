@@ -56,46 +56,211 @@
 //   );
 // }
 
+// // export default LiveMockTest;
+// import React from "react";
+// import TestSetCard from "../modules/TestSetCard";
+// import { useParams } from "react-router-dom";
+
+// /**
+//  * Simple mock data for local dev.
+//  * Each entry MUST have an `id` that matches the testId you plan to use in DB.
+//  * When you move to real data, replace this with a fetch to your API.
+//  */
+// const testData = {
+//   BCA: [
+//     { id: "bca1", title: "BCA Mock 1", docs: "5", time: "60 mins", students: 100, instructor: "GT", rating: 4.5, isFree: true },
+//     { id: "bca2", title: "BCA Mock 2", docs: "6", time: "90 mins", students: 80, instructor: "GT", rating: 4.7, isFree: false },
+//   ],
+//   BIT: [
+//     { id: "bit1", title: "BIT Mock 1", docs: "4", time: "60 mins", students: 120, instructor: "GT", rating: 4.6, isFree: true },
+//   ],
+//   CSIT: [
+//     { id: "csit1", title: "CSIT Mock 1", docs: "8", time: "120 mins", students: 90, instructor: "GT", rating: 4.8, isFree: true },
+//   ],
+//   BBB: [
+//     { id: "bbb1", title: "BBB Mock 1", docs: "3", time: "30 mins", students: 50, instructor: "GT", rating: 4.2, isFree: true },
+//   ],
+// };
+
+// const LiveMockTest = () => {
+//   const { testType } = useParams();
+//   const cards = testData[testType] || [];
+
+//   return (
+//     <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+//       {cards.length > 0 ? (
+//         cards.map((data) => <TestSetCard key={data.id} data={data} />)
+//       ) : (
+//         <div className="col-span-full text-center text-gray-500">
+//           No tests found for <span className="font-semibold">"{testType}"</span>
+//           <p className="text-sm mt-2">Make sure testType in URL matches one of: BCA, BIT, CSIT, BBB</p>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
 // export default LiveMockTest;
-import React from "react";
+
+
+// import React, { useEffect, useState } from "react";
+// import TestSetCard from "../modules/TestSetCard";
+// import { useParams } from "react-router-dom";
+
+// const LiveMockTest = () => {
+//   const { testType } = useParams();
+//   const [tests, setTests] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     async function fetchTests() {
+//       try {
+//         setLoading(true);
+//         setError(null);
+
+//         // fetch questions from backend for this testType
+//         const res = await fetch(`http://localhost:5000/api/questions/${testType}`);
+//         if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
+//         const json = await res.json();
+
+//         // group by testId to create cards
+//         const grouped = {};
+//         json.data.forEach(q => {
+//           if (!grouped[q.testId]) grouped[q.testId] = [];
+//           grouped[q.testId].push(q);
+//         });
+
+//         // create card data array
+//         const cards = Object.keys(grouped).map(testId => ({
+//           id: testId,
+//           title: testId.toUpperCase(),
+//           docs: grouped[testId].length,
+//           time: "60 mins", // optional, you can fetch real times if backend supports
+//           students: 0,     // optional
+//           instructor: "GT",
+//           rating: 4.5,
+//           isFree: true
+//         }));
+
+//         setTests(cards);
+//       } catch (err) {
+//         console.error(err);
+//         setError("Could not load tests. Check server.");
+//       } finally {
+//         setLoading(false);
+//       }
+//     }
+
+//     fetchTests();
+//   }, [testType]);
+
+//   if (loading) return <div className="p-6 text-center">Loading tests...</div>;
+//   if (error) return <div className="p-6 text-center text-red-500">{error}</div>;
+//   if (tests.length === 0) return <div className="p-6 text-center">No tests found for "{testType}"</div>;
+
+//   return (
+//     <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+//       {tests.map((data) => (
+//         <TestSetCard key={data.id} data={data} />
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default LiveMockTest;
+
+
+
+
+// import React from "react";
+// import TestSetCard from "../modules/TestSetCard";
+// import { useParams } from "react-router-dom";
+
+// // Map of testType to actual test sets
+// const testData = {
+//   BCA: [
+//     { id: "bca-set1", title: "BCA Mock 1", docs: "5", time: "60 mins", students: 100, instructor: "GT", rating: 4.5, isFree: true },
+//     { id: "bca-set2", title: "BCA Mock 2", docs: "6", time: "90 mins", students: 80, instructor: "GT", rating: 4.7, isFree: false },
+//   ],
+//   BIT: [
+//     { id: "bit-set1", title: "BIT Mock 1", docs: "4", time: "60 mins", students: 120, instructor: "GT", rating: 4.6, isFree: true },
+//   ],
+//   CSIT: [
+//     { id: "csit-set1", title: "CSIT Mock 1", docs: "8", time: "120 mins", students: 90, instructor: "GT", rating: 4.8, isFree: true },
+//   ],
+//   BBB: [
+//     { id: "bbb-set1", title: "BBB Mock 1", docs: "3", time: "30 mins", students: 50, instructor: "GT", rating: 4.2, isFree: true },
+//   ],
+// };
+
+// const LiveMockTest = () => {
+//   const { testType } = useParams();
+//   const cards = testData[testType] || [];
+
+//   return (
+//     <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+//       {cards.length > 0 ? (
+//         cards.map((data) => <TestSetCard key={data.id} data={data} />)
+//       ) : (
+//         <div className="col-span-full text-center text-gray-500">
+//           No tests found for <span className="font-semibold">"{testType}"</span>
+//           <p className="text-sm mt-2">Make sure testType in URL matches one of: BCA, BIT, CSIT, BBB</p>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default LiveMockTest;
+
+
+import React, { useEffect, useState } from "react";
 import TestSetCard from "../modules/TestSetCard";
 import { useParams } from "react-router-dom";
 
-/**
- * Simple mock data for local dev.
- * Each entry MUST have an `id` that matches the testId you plan to use in DB.
- * When you move to real data, replace this with a fetch to your API.
- */
-const testData = {
-  BCA: [
-    { id: "bca1", title: "BCA Mock 1", docs: "5", time: "60 mins", students: 100, instructor: "GT", rating: 4.5, isFree: true },
-    { id: "bca2", title: "BCA Mock 2", docs: "6", time: "90 mins", students: 80, instructor: "GT", rating: 4.7, isFree: false },
-  ],
-  BIT: [
-    { id: "bit1", title: "BIT Mock 1", docs: "4", time: "60 mins", students: 120, instructor: "GT", rating: 4.6, isFree: true },
-  ],
-  CSIT: [
-    { id: "csit1", title: "CSIT Mock 1", docs: "8", time: "120 mins", students: 90, instructor: "GT", rating: 4.8, isFree: true },
-  ],
-  BBB: [
-    { id: "bbb1", title: "BBB Mock 1", docs: "3", time: "30 mins", students: 50, instructor: "GT", rating: 4.2, isFree: true },
-  ],
-};
-
 const LiveMockTest = () => {
   const { testType } = useParams();
-  const cards = testData[testType] || [];
+  const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchTests() {
+      try {
+        setLoading(true);
+        setError(null);
+
+        const res = await fetch(`/api/tests/${testType}`);
+        if (!res.ok) throw new Error(`Failed to fetch tests: ${res.status}`);
+
+        const json = await res.json();
+        setCards(json.data || []);
+      } catch (err) {
+        console.error(err);
+        setError("Could not load tests. Check server/API.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchTests();
+  }, [testType]);
+
+  if (loading) return <div className="p-6 text-center">Loading tests...</div>;
+  if (error) return <div className="p-6 text-center text-red-500">{error}</div>;
+  if (cards.length === 0)
+    return (
+      <div className="p-6 text-center text-gray-500">
+        No tests found for <span className="font-semibold">{testType}</span>
+      </div>
+    );
 
   return (
     <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {cards.length > 0 ? (
-        cards.map((data) => <TestSetCard key={data.id} data={data} />)
-      ) : (
-        <div className="col-span-full text-center text-gray-500">
-          No tests found for <span className="font-semibold">"{testType}"</span>
-          <p className="text-sm mt-2">Make sure testType in URL matches one of: BCA, BIT, CSIT, BBB</p>
-        </div>
-      )}
+      {cards.map((data) => (
+        <TestSetCard key={data._id} data={data} />
+      ))}
     </div>
   );
 };

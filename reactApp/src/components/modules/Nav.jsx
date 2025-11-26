@@ -322,9 +322,9 @@ function Nav() {
             <div className="absolute left-0 top-6 bg-white shadow-md rounded-md p-3 w-40 z-50">
               <p
                 className="hover:bg-gray-100 p-2 rounded-md cursor-pointer"
-                onClick={() => goToTest("BBB")}
+                onClick={() => goToTest("BCA")}
               >
-                BBB
+                BCA
               </p>
               <p
                 className="hover:bg-gray-100 p-2 rounded-md cursor-pointer"
